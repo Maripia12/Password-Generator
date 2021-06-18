@@ -24,7 +24,10 @@ To create an application that generates random passwords based on criteria that 
 
 -----------
 
-![screenshot](Assets\screencapture-127-0-0-1-5500-index-html-2021-06-18-16_03_43.png)
+
+
+
+![screenshot](Assets/screencapture-127-0-0-1-5500-index-html-2021-06-18-16_03_43.png)
 
 
 
