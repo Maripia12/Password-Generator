@@ -3,7 +3,8 @@ var generateBtn = document.querySelector("#generate");
  
 var values = "abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
-var passSelection = ("");
+var passwordValues = "";
+var passwordSelection = ("");
 
  
 // generateBtn=document.getElementById('generateBtn')
@@ -28,60 +29,69 @@ function writePassword() {
 function generatePassword() {
 
   
-  var passwordLength = prompt("Enter the number of characters. Password may be at least 8 characters and no more than 128 characters.");
+    var passwordLength = prompt("Enter the number of characters. Password may be at least 8 characters and no more than 128 characters.");
+  
   // create conditional statements that will validate the password length.
 
     if(passwordLength < 8) {
-  alert("Password too short");
-  generatePassword();
-    }
+    alert("Password too short");
+    return;
+  }
 
     if(passwordLength > 128) {
-  alert("Password too long");
-  generatePassword();
+    alert("Password too long");
+    return;
   }
   
  
-   if(confirm("Do you want numbers in your password?") ) {
+  var numberInPassword = confirm("Do you want numbers in your password?");
 
-    passSelection= passSelection.concat(values);
-
-   
-   }
-
-  if(confirm("Do you want special characters?") ) {
-
-    passSelection= passSelection.concat(values);
-
-   }
-
-  if(confirm("Do you want uppercase letters?") ) {
-
- 
-   }
-
-
-  if(confirm("Do you want lowercase letters?") ) {
-  
-  
-  }
-
-  
- 
-
-   
-  
-
-  for(var i = 0; i <= generateBtn; i++){
-  passSelection = passSelection + values.charAt(Math.floor(Math.random() * Math.floor(value.length -1)));
+    if(numberInPassword) {
+      passwordValues = passwordValues + "0123456789";
 
   }
+
+
+
+  var specialCharsInPasswords = confirm("Do you want special characters?");
+
+    if(specialCharsInPasswords ) {
+      passwordValues = passwordValues  + "!@#$%^&*()" ;
+
+    }
+
+  var uppercaseInPasswords = confirm("Do you want uppercase letters?");
   
-}
+    if(uppercaseInPasswords) {
+
+      passwordValues = passwordValues + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    
+    }
+    
+   var lowercaseInPasswords = confirm("Do you want lowercase letters?");  
+
+    if(lowercaseInPasswords) {
+
+      passwordValues = passwordValues  + "abcdefghijklmnopqrstuvwxyz";
+    
+    }
+
+  
 
 
+ 
+  
+  
+
+  
+ 
+
+   
+  
+
+  }
 
 
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
