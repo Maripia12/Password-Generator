@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 var values = "abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
 var passwordValues = "";
-var passwordSelection = ("");
+var passSelection = ("");
 
  
 // generateBtn=document.getElementById('generateBtn')
@@ -31,7 +31,7 @@ function generatePassword() {
   
     var passwordLength = prompt("Enter the number of characters. Password may be at least 8 characters and no more than 128 characters.");
   
-  // create conditional statements that will validate the password length.
+  // created conditional statements that will validate the password length.
 
     if(passwordLength < 8) {
     alert("Password too short");
@@ -43,7 +43,8 @@ function generatePassword() {
     return;
   }
   
- 
+  // created conditional statements that will validate numbers in Password.
+
   var numberInPassword = confirm("Do you want numbers in your password?");
 
     if(numberInPassword) {
@@ -51,7 +52,7 @@ function generatePassword() {
 
   }
 
-
+   //created conditional statements that will validate special Characters in Password.
 
   var specialCharsInPasswords = confirm("Do you want special characters?");
 
@@ -60,6 +61,10 @@ function generatePassword() {
 
     }
 
+    
+  //created conditional statements that will validate Uppercase in Password.
+
+
   var uppercaseInPasswords = confirm("Do you want uppercase letters?");
   
     if(uppercaseInPasswords) {
@@ -67,6 +72,8 @@ function generatePassword() {
       passwordValues = passwordValues + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    
     }
+
+    //created conditional statements that will validate lowercase in Password.
     
    var lowercaseInPasswords = confirm("Do you want lowercase letters?");  
 
@@ -76,22 +83,25 @@ function generatePassword() {
     
     }
 
-  
+    // Placed variable loop/math method 
 
+    for(var i = 0; i <= passwordLength - 1; i++) {
+        passSelection = passSelection + passwordValues.charAt(Math.floor(Math.random() * Math.floor(passwordValues.length -1)));
 
+    }
  
-  
+    console.log("passSelection" , passSelection);
   
 
+    return passSelection;
   
- 
-
+  
    
   
 
   }
 
-
+ 
   
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
